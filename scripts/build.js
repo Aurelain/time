@@ -1,7 +1,9 @@
-const path = require('path');
+const fsExtra = require('fs-extra');
 const open = require('open');
 const modify = require('./utils/modify');
 const runCommand = require('./utils/runCommand');
+
+const OUTPUT_DIR = 'docs';
 
 /**
  *
@@ -40,8 +42,10 @@ const build = async () => {
         IMAGE_INLINE_SIZE_LIMIT: 'false',
     });
 
-    open('build/index.html');
-    runCommand(`explorer "${path.resolve(__dirname + '/../build')}"`);
+    fsExtra.removeSync(OUTPUT_DIR);
+    fsExtra.renameSync('build', OUTPUT_DIR);
+
+    open(OUTPUT_DIR + '/index.html');
 };
 
 // =====================================================================================================================

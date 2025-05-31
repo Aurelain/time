@@ -10,6 +10,7 @@
         "@mui/material": "^5.2.8",
         "assert": "^2.0.0",
         "copy-to-clipboard": "^3.3.1",
+        "fs-extra": "^11.3.0",
         "mdi-material-ui": "^7.1.0",
         "memoize-one": "^6.0.0",
         "open": "^8.4.0",
