@@ -1,0 +1,10 @@
+export const getIsInitialized = (state) => state.app.isInitialized;
+export const getTimestamp = (state) => state.app.timestamp;
+export const getStatus = (state) => state.app.status;
+export const getInfoMessage = (state) => state.app.infoMessage;
+export const getErrorMessage = (state) => state.app.errorMessage;
+export const getIsLoggingIn = (state) => state.app.isLoggingIn;
+export const getIsOthers = (state) => state.app.isOthers;
+export const getVisitedDays = (state) => state.app.visitedDays;
+export const getSearch = (state) => state.app.search;
+export const getParsedSearch = (state) => state.app.parsedSearch;

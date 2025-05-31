@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='ro'>
+    <head>
+        <meta charset='utf-8' />
+        <meta name='google' value='notranslate'>
+        <title>Time</title>
+        <link rel="shortcut icon" href="favicon.png">
+        <style>
+            #spinner {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                margin: -12px 0 0 -12px;
+                width: 24px;
+                height: 24px;
+                animation: animationSpinner infinite linear .75s;
+                border-radius: 100%;
+                border: 2px solid #0052cc;
+                border-top-color: transparent;
+                box-sizing: border-box;
+            }
+
+            @keyframes animationSpinner {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            #root {
+                visibility: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='spinner'></div>
+        <div id='root'></div>
+    </body>
+</html>
