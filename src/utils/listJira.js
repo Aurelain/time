@@ -1,6 +1,6 @@
 import ajax from './ajax';
 
-const MAX_ISSUES = 2000;
+const MAX_ISSUES = 300;
 
 /**
  *
@@ -10,7 +10,12 @@ const listJira = async (singleRequest) => {
     const issues = [];
     const maxResults = 100;
     let startAt = 0;
+    let count = 0;
     while (true) {
+        if (count++ > 3) {
+            // failsafe
+            break;
+        }
         if (issues.length >= MAX_ISSUES) {
             console.log(`Reached the cap at ${MAX_ISSUES}!`);
             issues.length = MAX_ISSUES;
@@ -26,7 +31,7 @@ const listJira = async (singleRequest) => {
         }
         issues.push(...payload.issues);
         startAt += maxResults;
-        if (startAt > payload.total - 1) {
+        if (payload.isLast || payload.total - 1 < startAt) {
             break;
         }
     }

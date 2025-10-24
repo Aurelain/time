@@ -50,7 +50,7 @@ export const issuesAvailableFetch = () => async (dispatch, getState) => {
         const cleanJql = convertSearchToJql({parsedSearch, accountId});
         if (cleanJql) {
             const jql = buildJql(cleanJql);
-            issues = await listJira(`search?jql=${jql}&fields=summary,issuetype,worklog,watches,assignee,priority`);
+            issues = await listJira(`search/jql?jql=${jql}&fields=summary,issuetype,worklog,watches,assignee,priority`);
         } else {
             issues = [];
         }
@@ -115,7 +115,7 @@ export const issuesWorkedFetch = () => async (dispatch, getState) => {
     // watchers in the worked section.
     let issues;
     try {
-        issues = await listJira(`search?jql=${jql}&fields=summary,issuetype,worklog,priority`);
+        issues = await listJira(`search/jql?jql=${jql}&fields=summary,issuetype,worklog,priority`);
     } catch (e) {
         dispatch({
             type: ISSUES_WORKED_FETCH_ERROR,
